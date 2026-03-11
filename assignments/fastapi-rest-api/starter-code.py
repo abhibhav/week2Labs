@@ -1,0 +1,24 @@
+# FastAPI Starter Code
+
+# main.py
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import List, Optional
+
+app = FastAPI()
+
+# Example Pydantic model
+class Book(BaseModel):
+    id: int
+    title: str
+    author: str
+
+# In-memory storage
+books: List[Book] = []
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the FastAPI Book API!"}
+
+# Add your CRUD endpoints below
